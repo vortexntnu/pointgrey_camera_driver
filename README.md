@@ -8,6 +8,18 @@ These drives are included along with modifications of the standard ros image mes
 
 This code was originally developed by the National Robotics Engineering Center (NREC), part of the Robotics Institute at Carnegie Mellon University. Its development was funded by DARPA under the LS3 program and submitted for public release on June 7th, 2012. Release was granted on August, 21st 2012 with Distribution Statement "A" (Approved for Public Release, Distribution Unlimited).
 
+## Installation
+Automatic download of the flycapture driver form FLIR is currently not working. To do it manually,download the driver from https://www.flir.com/products/flycapture-sdk/. Instalation guides from https://www.flir.com/support-center/iis/machine-vision/application-note/getting-started-with-flycapture-2-and-arm/. Summarised: Install dependencies (commando actually for ubuntu 14.04, should be updated for 16.04). Then extract the driver, run the permission-setting helper script and finally copy the libriaries and header files to /usr:
+     
+     sudo apt-get install libraw1394-11 libgtkmm-2.4-1c2a libglademm-2.4-1c2a libusb-1.0-0
+     tar xvfz flycapture-<version>_arm.tar.gz
+     cd flycapture-<version>_arm
+     sudo cp lib/libflycapture* /usr/lib
+     sudo mkdir /usr/include/flycapture
+     sudo cp include/*.h /usr/include/flycapture
+     sudo sh flycap2-conf
+
+## License
 This software is released under a BSD license:
 
 Copyright (c) 2012, Carnegie Mellon University. All rights reserved.
